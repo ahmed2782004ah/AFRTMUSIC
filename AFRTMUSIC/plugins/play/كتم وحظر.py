@@ -80,7 +80,7 @@ async def muttopen(client, message):
       return await message.reply_text("لازم تكون ادمن يشخه علشان اسمع كلامك")
         
         
-@app.on_message(command(["الغاء تقيد","الغاء لتقيد"]), group=94) 
+@app.on_message(command(["الغاء تقييد","الغاء التقييد"]), group=94) 
 async def mute(client: Client, message: Message):
    global restricted_users
    get = await client.get_chat_member(message.chat.id, message.from_user.id)
@@ -96,7 +96,7 @@ async def mute(client: Client, message: Message):
 
 
 restricted_users = []
-@app.on_message(command(["تقيد"]), group=62)
+@app.on_message(command(["تقييد"]), group=62)
 async def mute(client: Client, message: Message):
     global restricted_users
     get = await client.get_chat_member(message.chat.id, message.from_user.id)
