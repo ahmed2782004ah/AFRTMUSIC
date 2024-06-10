@@ -203,7 +203,7 @@ async def remove_malleka(client, message):
         chat_id = message.chat.id
         await app.send_message(chat_id, text="المستخدم ليس لديه الصلاحيه")
 
-@app.on_message(command(["قائمة المالكية", "المالكين"]), group=3991)
+@app.on_message(command(["المالك", "المالكين"]), group=3991)
 async def list_mallekas(client, message):
     global mallekan
     chat_id = message.chat.id
@@ -212,7 +212,7 @@ async def list_mallekas(client, message):
         mallekas_list = "\n".join(mallekas)
         await app.send_message(chat_id, text=f"قائمة المالكين:\n{mallekas_list}")
     else:
-        await app.send_message(chat_id, text="لا يوجد أدمنية حالياً")
+        await app.send_message(chat_id, text="لا يوجد مالكين حالياً")
 
 @app.on_message(command(["مسح المالكين"]), group=13684)
 async def mallekandv(client, message):
@@ -230,7 +230,7 @@ async def mallekandv(client, message):
     if successful_count > 0:
         await message.reply_text(f"↢ تم مسح {successful_count} من المالكين")
     else:
-        await message.reply_text("↢ لا يوجد مالكيه ليتم مسحهم")
+        await message.reply_text("↢ لا يوجد مالكيين ليتم مسحهم")
     if failed_count > 0:
         await message.reply_text(f"↢ فشل في مسح {failed_count} من المالكين")
         
