@@ -84,7 +84,7 @@ async def muttopen(client, message):
 async def mute(client: Client, message: Message):
    global restricted_users
    get = await client.get_chat_member(message.chat.id, message.from_user.id)
-   if get.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR] or message.from_user.id == 6438745713:
+   if get.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR] or message.from_user.id == 6988786007:
     if message.chat.id in muttof:
       return   	   	
     await app.restrict_chat_member(
@@ -103,7 +103,7 @@ async def mute(client: Client, message: Message):
     if get.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR] or message.from_user.id == 6438745713:
         if message.chat.id in muttof:
             return
-        if message.reply_to_message.from_user.id == 6438745713:
+        if message.reply_to_message.from_user.id == 6988786007:
             await app.send_message(message.chat.id, "عذرا لا يمكنك تقيد المطور")
         else:
             mute_permission = ChatPermissions(can_send_messages=False)
@@ -175,7 +175,7 @@ async def mute(client: Client, message: Message):
         return
     if message.chat.id in gaaof:
         return
-    if message.reply_to_message.from_user.id == 6438745713:
+    if message.reply_to_message.from_user.id == 6988786007:
         await app.send_message(message.chat.id, "عذرا لا يمكنك طرد المطور")
     else:
         banned_user = message.reply_to_message.from_user
@@ -239,8 +239,8 @@ async def mute_user(client, message):
     chat_member = await client.get_chat_member(message.chat.id, message.from_user.id)
     if chat_member.status not in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR] and message.from_user.id != 6438745713:
         return
-    if message.reply_to_message.from_user.id == 6438745713:
-        await app.send_message(message.chat.id, "عذرا لا يمكنك طرد المطور")
+    if message.reply_to_message.from_user.id == 6988786007:
+        await app.send_message(message.chat.id, "عذرا لا يمكنك كتم المطور")
     else:	
         if message.reply_to_message:
             user_id = message.reply_to_message.from_user.id
@@ -248,7 +248,7 @@ async def mute_user(client, message):
                 muted_users.append(user_id)
                 await message.reply_text(f"العضو {user_id} تم كتمه بنجاح.")
             else:
-                await message.reply_text(f"المستخدم محظور بالفعل")
+                await message.reply_text(f"المستخدم مكتوم بالفعل")
         else:
             await message.reply_text("قم بعمل ريبلاي")
 
